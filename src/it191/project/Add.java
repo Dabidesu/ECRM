@@ -5,7 +5,13 @@
  */
 package it191.project;
 
+import java.awt.Image;
+import java.io.File;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -45,6 +51,10 @@ public class Add extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jButton4 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
@@ -105,18 +115,50 @@ public class Add extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setText("Upload an Image");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setBorder(new javax.swing.border.MatteBorder(null));
+
+        jLabel9.setText("Image Preview");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(103, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(134, 134, 134))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(87, 87, 87))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(166, 166, 166))))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
+        );
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(103, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -150,8 +192,17 @@ public class Add extends javax.swing.JFrame {
                             .addComponent(jLabel6))
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addGap(22, 22, 22)
-                            .addComponent(party, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(party, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,11 +229,16 @@ public class Add extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addGap(7, 7, 7)
                 .addComponent(party, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
-                    .addComponent(jButton3)))
+                    .addComponent(jButton3))
+                .addContainerGap(37, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
 
         jPanel4.setBorder(new javax.swing.border.MatteBorder(null));
@@ -215,7 +271,7 @@ public class Add extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(jButton8)
                 .addGap(38, 38, 38)
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE))
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,44 +322,28 @@ public class Add extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        new AddImage().setVisible(true);
+        new Admin().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String nameText;
-        String birthdayText;
-        String positionText;
-        String educationText;
-        String partyText;
+      
+        personName = name.getText();
+        personBirthday = birthday.getText();
+        personPosition = position.getText();
+        personEducational = education.getText();
+        personParty = party.getText();
         
-        nameText = name.getText();
-        birthdayText = birthday.getText();
-        positionText = position.getText();
-        educationText = education.getText();
-        partyText = party.getText();
-        
-        //ArrayList<String> names = new ArrayList<String>();
-        //names.add(nameText + birthdayText + positionText + educationText + partyText);
-        //System.out.println(" " + nameText + "\t\t" + birthdayText + "\t\t" + positionText + "\t\t " + educationText + "\t\t " + partyText + "\t\t ");
-        ArrayList<String> names = new ArrayList<String>();
-        ArrayList<String> birthday = new ArrayList<String>();
-        ArrayList<String> position = new ArrayList<String>();
-        ArrayList<String> education = new ArrayList<String>();
-        ArrayList<String> party = new ArrayList<String>();
-        
-        names.add(nameText);
-        birthday.add(birthdayText);
-        position.add(positionText);
-        education.add(educationText);
-        party.add(partyText);
-                
-        for (int i = 0; i < names.size();i++) 
-          {
-              System.out.println(names.get(i) + "\t\t" + birthday.get(i) + "\t\t" + position.get(i) + "\t\t" + education.get(i) + "\t\t" + party.get(i));
-          }
+        if (!imagePathStr.isEmpty()){
+        Operations operations = new Operations();
+        operations.insertPerson(personName, personBirthday, personPosition, personEducational, personParty,imagePathStr, this);
+              
     }//GEN-LAST:event_jButton1ActionPerformed
-
+        else {
+            JOptionPane.showMessageDialog(this, "Please Select Image First!");
+        }
+        
+    }
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         new Admin().setVisible(true);
         this.dispose();
@@ -316,6 +356,24 @@ public class Add extends javax.swing.JFrame {
         education.setText("");
         party.setText("");
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+       JFileChooser fileChooser=new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("*.IMAGE", "jpg","png", "gif");
+        fileChooser.addChoosableFileFilter(filter);
+        int result = fileChooser.showSaveDialog(this);
+        if(result == JFileChooser.APPROVE_OPTION){
+            File selectedImage = fileChooser.getSelectedFile();
+            String imagePath = selectedImage.getAbsolutePath();
+            try{
+                jLabel7.setIcon(ResizeImage(imagePath));
+                imagePathStr = imagePath;
+            }catch(Exception exception){
+                JOptionPane.showMessageDialog(rootPane, "Image Error:" + exception.getMessage());
+                
+            }
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -358,6 +416,7 @@ public class Add extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
@@ -367,12 +426,49 @@ public class Add extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTextField name;
     private javax.swing.JTextField party;
     private javax.swing.JTextField position;
     // End of variables declaration//GEN-END:variables
+private String personName, personBirthday, personPosition, personEducational, personParty, imagePathStr;
+
+private ImageIcon ResizeImage(String imgPath){
+    int imageX = 250;
+    int imageY = 250;
+    jLabel1.setSize(imageX, imageY);
+    
+    ImageIcon myImage = new ImageIcon(imgPath);
+    Image img = myImage.getImage();
+    Image newImage = img.getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH);
+    ImageIcon image = new ImageIcon(newImage);
+    
+    return image;
+}
+
+private ImageIcon ViewResizeImage(String imgPath, byte[] imgBytes){
+    int imageX = 250;
+    int imageY = 250;
+    jLabel2.setSize(imageX, imageY);
+    
+    ImageIcon myImage = null;
+    
+    if(imgPath != null){
+    myImage = new ImageIcon(imgPath);
+    }else{
+    myImage = new ImageIcon(imgBytes);
+    }
+    
+    Image img = myImage.getImage();
+    Image newImage = img.getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH);
+    ImageIcon image = new ImageIcon(newImage);
+    
+    return image;
+}
 }
