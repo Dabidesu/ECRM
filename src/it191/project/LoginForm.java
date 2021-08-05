@@ -2,10 +2,14 @@
 package it191.project;
 
 import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.sql.*;
 import java.lang.*;
 import javax.swing.JOptionPane;
 import java.text.*;
+import javax.imageio.ImageIO;
 
 public class LoginForm extends javax.swing.JFrame {
 
@@ -31,6 +35,7 @@ public class LoginForm extends javax.swing.JFrame {
         priv = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        prev = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -94,6 +99,14 @@ public class LoginForm extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, -1, 20));
+
+        prev.setBackground(new java.awt.Color(255, 255, 255));
+        prev.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prevActionPerformed(evt);
+            }
+        });
+        jPanel1.add(prev, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, -1, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -179,6 +192,11 @@ public class LoginForm extends javax.swing.JFrame {
 
     }//GEN-LAST:event_loginBtnActionPerformed
 
+    private void prevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevActionPerformed
+        this.setVisible(false);
+        new Login().setVisible(true);
+    }//GEN-LAST:event_prevActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -224,6 +242,7 @@ public class LoginForm extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_Username;
     private javax.swing.JButton loginBtn;
     private javax.swing.JTextField passwordField;
+    private javax.swing.JButton prev;
     private javax.swing.JLabel priv;
     private javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
