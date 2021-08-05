@@ -16,6 +16,7 @@ public class RegisterForm extends javax.swing.JFrame {
     /**
      * Creates new form RegisterForm
      */
+    public static int LoginAttempts = 4;
     public RegisterForm() {
         
         initComponents();
@@ -31,7 +32,6 @@ public class RegisterForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        usernameField = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         lbl_Username = new javax.swing.JLabel();
         lbl_Password = new javax.swing.JLabel();
@@ -41,12 +41,7 @@ public class RegisterForm extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         loginBtn = new javax.swing.JButton();
         s_confirmpw = new javax.swing.JTextField();
-
-        usernameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usernameFieldActionPerformed(evt);
-            }
-        });
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,6 +83,13 @@ public class RegisterForm extends javax.swing.JFrame {
         jPanel1.add(loginBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, -1, 20));
         jPanel1.add(s_confirmpw, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 130, 30));
 
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, -1, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -101,11 +103,7 @@ public class RegisterForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_usernameFieldActionPerformed
-
+ 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -122,8 +120,13 @@ public class RegisterForm extends javax.swing.JFrame {
             int n1 = pst.executeUpdate();
             
             
-            
-            if(conf.equals(vrfy))
+            if(s_username.getText().isEmpty() || s_confirmpw.getText().isEmpty() || s_pw.getText().isEmpty())
+                {
+                    JOptionPane.showMessageDialog(null, "Invalid input. Please try again.");
+                }
+            else
+            {
+                if(conf.equals(vrfy))
                {
                  System.out.println(conf + "3" + vrfy);
                     if(n1 != 0)
@@ -141,6 +144,8 @@ public class RegisterForm extends javax.swing.JFrame {
                     s_pw.setText("");
                     s_confirmpw.setText("");
                 }
+            }
+            
             
             con.close();
         }
@@ -154,6 +159,11 @@ public class RegisterForm extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_loginBtnActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.setVisible(false);
+        new Login().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,6 +201,7 @@ public class RegisterForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lbl_Confirm;
@@ -200,6 +211,5 @@ public class RegisterForm extends javax.swing.JFrame {
     private javax.swing.JTextField s_confirmpw;
     private javax.swing.JTextField s_pw;
     private javax.swing.JTextField s_username;
-    private javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
 }
