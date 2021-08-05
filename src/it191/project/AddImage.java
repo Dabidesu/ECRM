@@ -5,16 +5,12 @@
  */
         
 package it191.project;
-import java.awt.Toolkit;
+
+import java.awt.Image;
 import java.io.File;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -23,7 +19,6 @@ import javax.swing.JTextField;
  * @author jroeb
  */
 public class AddImage extends javax.swing.JFrame {
-
     /**
      * Creates new form AddImage
      */
@@ -64,8 +59,18 @@ public class AddImage extends javax.swing.JFrame {
         });
 
         jButton2.setText("Save");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Back");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setBorder(new javax.swing.border.MatteBorder(null));
 
@@ -202,12 +207,41 @@ public class AddImage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JFileChooser chooser=new JFileChooser();
-        chooser.showOpenDialog(null);
-        File f=chooser.getSelectedFile();
-        jLabel1.setIcon(new ImageIcon(f.toString()));
-        filename=f.getAbsolutePath();
+        JFileChooser fileChooser=new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("*.IMAGE", "jpg","png", "gif");
+        fileChooser.addChoosableFileFilter(filter);
+        int result = fileChooser.showSaveDialog(this);
+        if(result == JFileChooser.APPROVE_OPTION){
+            File selectedImage = fileChooser.getSelectedFile();
+            String imagePath = selectedImage.getAbsolutePath();
+            try{
+                jLabel1.setIcon(ResizeImage(imagePath));
+                imagePathStr = imagePath;
+            }catch(Exception exception){
+                JOptionPane.showMessageDialog(rootPane, "Image Error:" + exception.getMessage());
+                
+            }
+        }
+  
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        new Add().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       
+        
+        if(!imagePathStr.isEmpty()){
+            Operations operations = new Operations();
+            operations.insertPerson(imagePathStr, this);
+            
+        }else{
+            JOptionPane.showMessageDialog(this, "Please Select Image First");
+        }
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -259,6 +293,19 @@ public class AddImage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
-byte[] phote=null;
-String filename=null;
+private String imagePathStr;
+
+private ImageIcon ResizeImage(String imgPath){
+    int imageX = 250;
+    int imageY = 250;
+    jLabel1.setSize(imageX, imageY);
+    
+    ImageIcon myImage = new ImageIcon(imgPath);
+    Image img = myImage.getImage();
+    Image newImage = img.getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH);
+    ImageIcon image = new ImageIcon(newImage);
+    
+    return image;
+}
+
 }
