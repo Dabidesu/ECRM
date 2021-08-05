@@ -62,17 +62,6 @@ public class RegisterForm extends javax.swing.JFrame {
         lbl_Confirm.setText("Confirm Password:");
         jPanel1.add(lbl_Confirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, 30));
         jPanel1.add(s_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 130, 30));
-
-        s_pw.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                s_pwActionPerformed(evt);
-            }
-        });
-        s_pw.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                s_pwKeyReleased(evt);
-            }
-        });
         jPanel1.add(s_pw, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 130, 30));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -97,17 +86,6 @@ public class RegisterForm extends javax.swing.JFrame {
             }
         });
         jPanel1.add(loginBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, -1, 20));
-
-        s_confirmpw.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                s_confirmpwActionPerformed(evt);
-            }
-        });
-        s_confirmpw.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                s_confirmpwKeyReleased(evt);
-            }
-        });
         jPanel1.add(s_confirmpw, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 130, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -128,14 +106,6 @@ public class RegisterForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_usernameFieldActionPerformed
 
-    private void s_confirmpwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_s_confirmpwActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_s_confirmpwActionPerformed
-
-    private void s_pwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_s_pwActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_s_pwActionPerformed
-
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -153,23 +123,17 @@ public class RegisterForm extends javax.swing.JFrame {
             
             
             
-            if(conf == vrfy)
+            if(conf.equals(vrfy))
                {
-                   
-                    
-               }
-            else if(conf == vrfy)
-            {
-              System.out.println(conf + "3" + vrfy);
-                   JOptionPane.showMessageDialog(null, "tite");
+                 System.out.println(conf + "3" + vrfy);
                     if(n1 != 0)
                     {
                            JOptionPane.showMessageDialog(null, "Registration complete.");
                            //Next Page
-                    }
-            }
-            JOptionPane.showMessageDialog(null, conf + " test " + vrfy);
-            if(conf != vrfy)
+                    }  
+                    
+               }
+            else
                 {
                     JOptionPane.showMessageDialog(null, "Invalid credentials");
                     JOptionPane.showMessageDialog(null, conf + " " + vrfy);
@@ -184,19 +148,12 @@ public class RegisterForm extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, e);
         }
+        
+        
+        
+        
+        
     }//GEN-LAST:event_loginBtnActionPerformed
-
-    private void s_pwKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_s_pwKeyReleased
-        String conf = s_pw.getText();
-        String vrfy = s_confirmpw.getText();
-        System.out.println(conf + "Test" + vrfy);
-    }//GEN-LAST:event_s_pwKeyReleased
-
-    private void s_confirmpwKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_s_confirmpwKeyReleased
-        String conf = s_pw.getText();
-        String vrfy = s_confirmpw.getText();
-        System.out.println(conf + "Test" + vrfy);
-    }//GEN-LAST:event_s_confirmpwKeyReleased
 
     /**
      * @param args the command line arguments
