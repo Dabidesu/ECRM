@@ -42,6 +42,7 @@ public class Add extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
@@ -89,16 +90,18 @@ public class Add extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jButton1.setText("Save");
 
+        jButton3.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        jButton3.setText("Clear");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(125, 125, 125))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -132,7 +135,18 @@ public class Add extends javax.swing.JFrame {
                             .addComponent(jLabel6))
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addGap(22, 22, 22)
+<<<<<<< Updated upstream
                             .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))))
+=======
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(21, 21, 21)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(party, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+>>>>>>> Stashed changes
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -163,7 +177,8 @@ public class Add extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2)))
+                    .addComponent(jButton2)
+                    .addComponent(jButton3)))
         );
 
         jPanel4.setBorder(new javax.swing.border.MatteBorder(null));
@@ -245,6 +260,56 @@ public class Add extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+<<<<<<< Updated upstream
+=======
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String nameText;
+        String birthdayText;
+        String positionText;
+        String educationText;
+        String partyText;
+        
+        nameText = name.getText();
+        birthdayText = birthday.getText();
+        positionText = position.getText();
+        educationText = education.getText();
+        partyText = party.getText();
+        
+        //ArrayList<String> names = new ArrayList<String>();
+        //names.add(nameText + birthdayText + positionText + educationText + partyText);
+        //System.out.println(" " + nameText + "\t\t" + birthdayText + "\t\t" + positionText + "\t\t " + educationText + "\t\t " + partyText + "\t\t ");
+        ArrayList<String> names = new ArrayList<String>();
+        ArrayList<String> birthday = new ArrayList<String>();
+        ArrayList<String> position = new ArrayList<String>();
+        ArrayList<String> education = new ArrayList<String>();
+        ArrayList<String> party = new ArrayList<String>();
+        
+        names.add(nameText);
+        birthday.add(birthdayText);
+        position.add(positionText);
+        education.add(educationText);
+        party.add(partyText);
+                
+        for (int i = 0; i < names.size();i++) 
+          {
+              System.out.println(names.get(i) + "\t\t" + birthday.get(i) + "\t\t" + position.get(i) + "\t\t" + education.get(i) + "\t\t" + party.get(i));
+          }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        new Admin().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        name.setText("");
+        birthday.setText("");
+        position.setText("");
+        education.setText("");
+        party.setText("");
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+>>>>>>> Stashed changes
     /**
      * @param args the command line arguments
      */
@@ -283,6 +348,7 @@ public class Add extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
