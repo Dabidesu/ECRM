@@ -4,8 +4,13 @@ package it191.project;
  
 public class Admin extends javax.swing.JFrame {
 
-     
+    About abt = new About();
+    public void changeVal()
+    {
+        abt.setValue(2);
+    }
     public Admin() {
+        changeVal();
         initComponents();
     }
 

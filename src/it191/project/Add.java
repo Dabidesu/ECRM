@@ -11,9 +11,15 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
  
 public class Add extends javax.swing.JFrame {
-
-     
+    
+    About abt = new About();
+    public void changeVal()
+    {
+        abt.setValue(1);
+        System.out.println(abt.getValue());
+    }
     public Add() {
+        changeVal();
         initComponents();
     }
 

@@ -4,8 +4,13 @@ package it191.project;
  
 public class Login extends javax.swing.JFrame {
 
- 
+    About abt = new About();
+    public void changeVal()
+    {
+        abt.setValue(4);
+    }
     public Login() {
+        changeVal();
         initComponents();
     }
 

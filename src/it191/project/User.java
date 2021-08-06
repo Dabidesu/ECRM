@@ -11,8 +11,13 @@ import javax.swing.JOptionPane;
  
 public class User extends javax.swing.JFrame {
 
- 
+    About abt = new About();
+    public void changeVal()
+    {
+        abt.setValue(5);
+    }
     public User() {
+        changeVal();
         initComponents();
     }
 

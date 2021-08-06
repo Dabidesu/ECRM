@@ -4,8 +4,13 @@ package it191.project;
  
 public class Edit extends javax.swing.JFrame {
 
-     
+    About abt = new About();
+    public void changeVal()
+    {
+        abt.setValue(3);
+    }
     public Edit() {
+        changeVal();
         initComponents();
     }
 
