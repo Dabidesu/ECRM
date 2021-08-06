@@ -54,7 +54,6 @@ public class Add extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         homeBtn = new javax.swing.JButton();
-        aboutBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -247,11 +246,10 @@ public class Add extends javax.swing.JFrame {
                         .addGap(134, 134, 134))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel9)
-                        .addGap(166, 166, 166))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(162, Short.MAX_VALUE)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(87, 87, 87))
+                        .addGap(166, 166, 166))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(87, 87, 87))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,7 +279,7 @@ public class Add extends javax.swing.JFrame {
         jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(273, 29, -1, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/it191/project/flag.jpeg"))); // NOI18N
-        jLabel8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(153, 0, 0), null, null));
+        jLabel8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(153, 153, 153), null, null));
         jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, -1, -1));
 
         homeBtn.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
@@ -291,16 +289,7 @@ public class Add extends javax.swing.JFrame {
                 homeBtnActionPerformed(evt);
             }
         });
-        jPanel4.add(homeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, -1, -1));
-
-        aboutBtn.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
-        aboutBtn.setText("About");
-        aboutBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                aboutBtnActionPerformed(evt);
-            }
-        });
-        jPanel4.add(aboutBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, -1, -1));
+        jPanel4.add(homeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 20, -1, -1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -412,11 +401,6 @@ public class Add extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void aboutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutBtnActionPerformed
-        this.setVisible(false);
-        new About().setVisible(true);
-    }//GEN-LAST:event_aboutBtnActionPerformed
-
      
     public static void main(String args[]) {
          
@@ -451,7 +435,6 @@ public class Add extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton aboutBtn;
     private javax.swing.JTextField birthday;
     private javax.swing.JTextField education;
     private javax.swing.JButton homeBtn;
