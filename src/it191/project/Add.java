@@ -16,8 +16,9 @@ public class Add extends javax.swing.JFrame {
     public void changeVal()
     {
         abt.setValue(1);
-        System.out.println(abt.getValue());
+        //System.out.println(abt.getValue());
     }
+    public static boolean check = false;
     public Add() {
         changeVal();
         initComponents();
@@ -316,7 +317,9 @@ public class Add extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    if(name.getText().isEmpty() || birthday.getText().isEmpty() || position.getText().isEmpty() || education.getText().isEmpty() || party.getText().isEmpty())
+    
+        
+        if(name.getText().isEmpty() || birthday.getText().isEmpty() || position.getText().isEmpty() || education.getText().isEmpty() || party.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Invalid input. Please try again.");
         }
@@ -332,6 +335,20 @@ public class Add extends javax.swing.JFrame {
         if (!imagePathStr.isEmpty()){
         Operations operations = new Operations();
         operations.insertPerson(personName, personBirthday, personPosition, personEducational, personParty,imagePathStr, this);
+        check = true;
+        if(check == true)
+                    {
+                        try
+                        {
+                            Thread.sleep(1000);
+                        }
+                        catch(InterruptedException ex)
+                        {
+                            Thread.currentThread().interrupt();
+                        }
+                        this.setVisible(false);
+                        new Admin().setVisible(true);
+                    }
         }
         else {
             JOptionPane.showMessageDialog(this, "Please select an image first!");
