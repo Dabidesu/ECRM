@@ -387,11 +387,11 @@ public class Edit extends javax.swing.JFrame {
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         try{
             Connection mySqlConnection = MySQLConnection.getConnection();
-            PreparedStatement preparedStatement = mySqlConnection.prepareStatement("SELECT * FROM imagetest WHERE name = ? AND party =?");
-            
+            PreparedStatement preparedStatement = mySqlConnection.prepareStatement("SELECT * FROM imagetest WHERE name = ? ");
+                                                                                                            //AND party =?
             if(!search.getText().isEmpty()){
             preparedStatement.setString(1, search.getText());
-            preparedStatement.setString(2, search.getText());
+            //preparedStatement.setString(2, search.getText());
             
             ResultSet resultSet = preparedStatement.executeQuery(); 
             
