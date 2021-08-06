@@ -411,7 +411,7 @@ public class Edit extends javax.swing.JFrame {
             }
             
         }catch (Exception exception){
-             JOptionPane.showMessageDialog(this, "Data Error: " + exception.getMessage());
+             JOptionPane.showMessageDialog(this, "Error: " + exception.getMessage());
             return;
         }
     }//GEN-LAST:event_searchBtnActionPerformed
@@ -421,11 +421,19 @@ public class Edit extends javax.swing.JFrame {
         Class.forName("com.mysql.jdbc.Driver");  
 
         Connection mySqlConnection = MySQLConnection.getConnection();
-        PreparedStatement preparedStatement = mySqlConnection.prepareStatement("UPDATE imagetest SET name=" + new_name.getText() + ",birthday=" + new_birthdate.getText() + ",position=" + new_position.getText() + ",educational=" + new_education.getText() + ",party=" + new_party.getText() +" WHERE id=" + passVal + "");
+        PreparedStatement preparedStatement = mySqlConnection.prepareStatement("UPDATE imagetest SET name=?, birthday=?, position=?, educational=?, party=? WHERE id=?");
         
          
-         
+        preparedStatement.setString(1,new_name.getText());
+        preparedStatement.setString(2,new_birthdate.getText()); 
+        preparedStatement.setString(3,new_position.getText()); 
+        preparedStatement.setString(4,new_education.getText()); 
+        preparedStatement.setString(5,new_party.getText());
+        preparedStatement.setString(6, passVal);
+        
+
         int n1 = preparedStatement.executeUpdate();
+        
             if(new_name.getText().isEmpty() || new_birthdate.getText().isEmpty() || new_position.getText().isEmpty() || new_education.getText().isEmpty() || new_party.getText().isEmpty())
                 {
                     JOptionPane.showMessageDialog(null, "Invalid input. Please try again.");
@@ -447,12 +455,12 @@ public class Edit extends javax.swing.JFrame {
                                 Thread.currentThread().interrupt();
                             }
                             this.setVisible(false);
-                            new Login().setVisible(true);
+                            new Admin().setVisible(true);
                         }
                     }
                 }
             
-        preparedStatement.close();  
+         
         mySqlConnection.close(); 
         }catch (Exception exception){
              JOptionPane.showMessageDialog(this, "Error xd " + exception.getMessage());
@@ -468,11 +476,8 @@ public class Edit extends javax.swing.JFrame {
             preparedStatement.executeUpdate();
             
             
-            
-            
-            
         }catch (Exception exception){
-             JOptionPane.showMessageDialog(this, "Data Error: " + exception.getMessage());
+             JOptionPane.showMessageDialog(this, "Error: " + exception.getMessage());
             return;
         }
     }//GEN-LAST:event_deleteBtnActionPerformed
