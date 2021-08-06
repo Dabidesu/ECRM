@@ -58,18 +58,18 @@
                               <Component id="lbl_Username" min="-2" max="-2" attributes="0"/>
                               <Component id="lbl_Password" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="s_username" min="-2" pref="130" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="s_pw" min="-2" pref="130" max="-2" attributes="0"/>
+                              <Component id="s_username" min="-2" pref="130" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="lbl_Confirm" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="s_confirmpw" min="-2" pref="130" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -83,20 +83,21 @@
                   <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="lbl_Username" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lbl_Username" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="s_username" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                          <Component id="lbl_Password" min="-2" pref="30" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="s_username" min="-2" pref="30" max="-2" attributes="0"/>
-                          <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                          <Component id="s_pw" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lbl_Password" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="s_pw" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lbl_Confirm" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="s_confirmpw" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="s_confirmpw" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="lbl_Confirm" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
