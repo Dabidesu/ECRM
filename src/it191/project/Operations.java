@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+ 
 package it191.project;
 
 import java.io.File;
@@ -12,10 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-/**
- *
- * @author kylea
- */
+ 
 public class Operations {
     
     public static void insertPerson(String personName, String personBirthday, String personPosition, String personEducational, String personParty, String personImagePath, JFrame frame){
