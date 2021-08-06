@@ -17,11 +17,12 @@ public class LForm extends javax.swing.JFrame {
     public static int LoginAttempts = 4;
     public static String userInp;
     public boolean ad = false;
+    public boolean us = false;
     public LForm() {
         initComponents();
     }
 
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -159,8 +160,8 @@ public class LForm extends javax.swing.JFrame {
         String sql = "Select * from test where username=? and password=?";
 
         try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/database","root","");
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db","root","");
 
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1,usernameField.getText());
@@ -177,12 +178,44 @@ public class LForm extends javax.swing.JFrame {
                 if(userInp.equals("adminxd"))
                 {
                     System.out.println("Welcome, Admin!");
+                    ad = true;
+                    
+                    if(ad == true)
+                    {
+                        try
+                        {
+                            Thread.sleep(1000);
+                        }
+                        catch(InterruptedException ex)
+                        {
+                            Thread.currentThread().interrupt();
+                        }
+                        this.setVisible(false);
+                        new Admin().setVisible(true);
+                    }
                 }
                 else
                 {
-                    System.out.println("Welcome, " + userInp);
+                    System.out.println("Welcome, " + userInp + "!");
+                    us = true;
+                    
+                    if(us == true)
+                    {
+                        try
+                        {
+                            Thread.sleep(1000);
+                        }
+                        catch(InterruptedException ex)
+                        {
+                            Thread.currentThread().interrupt();
+                        }
+                        this.setVisible(false);
+                        new User().setVisible(true);
+                    }
+
                 }
 
+                
             }
             else
             {
@@ -201,7 +234,6 @@ public class LForm extends javax.swing.JFrame {
                     else if(LoginAttempts > 1)
                     {
                         JOptionPane.showMessageDialog(null, "Incorrect credentials. " + (LoginAttempts-1) + " attempts left");
-                        priv.setText("");
                         LoginAttempts--;
                     }
                     else if(LoginAttempts == 1)

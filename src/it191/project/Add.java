@@ -56,9 +56,8 @@ public class Add extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        homeBtn = new javax.swing.JButton();
+        aboutBtn = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -243,19 +242,21 @@ public class Add extends javax.swing.JFrame {
 
         jPanel4.setBorder(new javax.swing.border.MatteBorder(null));
 
-        jButton6.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
-        jButton6.setText("Home");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        homeBtn.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        homeBtn.setText("Home");
+        homeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                homeBtnActionPerformed(evt);
             }
         });
 
-        jButton7.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
-        jButton7.setText("About");
-
-        jButton8.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
-        jButton8.setText("Contacts");
+        aboutBtn.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        aboutBtn.setText("About");
+        aboutBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aboutBtnActionPerformed(evt);
+            }
+        });
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/it191/project/flag.jpeg"))); // NOI18N
 
@@ -264,28 +265,23 @@ public class Add extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton6)
-                .addGap(29, 29, 29)
-                .addComponent(jButton7)
-                .addGap(26, 26, 26)
-                .addComponent(jButton8)
-                .addGap(38, 38, 38)
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(homeBtn)
+                .addGap(113, 113, 113)
+                .addComponent(aboutBtn)
+                .addGap(169, 169, 169)
+                .addComponent(jLabel8)
+                .addGap(47, 47, 47))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6)
-                    .addComponent(jButton7)
-                    .addComponent(jButton8))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
-                .addContainerGap())
+                    .addComponent(homeBtn)
+                    .addComponent(aboutBtn))
+                .addContainerGap(32, Short.MAX_VALUE))
+            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -327,7 +323,13 @@ public class Add extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      
+    if(name.getText().isEmpty() || birthday.getText().isEmpty() || position.getText().isEmpty() || education.getText().isEmpty() || party.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Invalid input. Please try again.");
+        }
+        else
+    {
+    
         personName = name.getText();
         personBirthday = birthday.getText();
         personPosition = position.getText();
@@ -337,17 +339,18 @@ public class Add extends javax.swing.JFrame {
         if (!imagePathStr.isEmpty()){
         Operations operations = new Operations();
         operations.insertPerson(personName, personBirthday, personPosition, personEducational, personParty,imagePathStr, this);
-              
-    }//GEN-LAST:event_jButton1ActionPerformed
+        }
         else {
-            JOptionPane.showMessageDialog(this, "Please Select Image First!");
+            JOptionPane.showMessageDialog(this, "Please select an image first!");
         }
         
+    }//GEN-LAST:event_jButton1ActionPerformed
+        
     }
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
+        this.setVisible(false);
         new Admin().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_homeBtnActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         name.setText("");
@@ -374,6 +377,11 @@ public class Add extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void aboutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutBtnActionPerformed
+        this.setVisible(false);
+        new About().setVisible(true);
+    }//GEN-LAST:event_aboutBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -411,15 +419,14 @@ public class Add extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton aboutBtn;
     private javax.swing.JTextField birthday;
     private javax.swing.JTextField education;
+    private javax.swing.JButton homeBtn;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

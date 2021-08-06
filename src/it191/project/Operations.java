@@ -41,7 +41,7 @@ public class Operations {
        
         try{
             preparedStatement.execute();
-             JOptionPane.showMessageDialog(frame, "Record Has Been Saved!");
+             JOptionPane.showMessageDialog(frame, "Record has been saved!");
             
         }catch (Exception exception){
              JOptionPane.showMessageDialog(frame, "Image Error: " + exception.getMessage());
