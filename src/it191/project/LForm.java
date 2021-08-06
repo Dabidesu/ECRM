@@ -12,8 +12,10 @@ public class LForm extends javax.swing.JFrame {
 
     public static int LoginAttempts = 4;
     public static String userInp;
+    public static String passUser;
     public boolean ad = false;
     public boolean us = false;
+    
     public LForm() {
         initComponents();
     }
@@ -167,6 +169,7 @@ public class LForm extends javax.swing.JFrame {
 
             if(rs.next())
             {
+                passUser = usernameField.getText();
                 userInp = rs.getString(1);
                 JOptionPane.showMessageDialog(null, "Username and password matched. Sign-in successful.");
                 System.out.println(userInp);
